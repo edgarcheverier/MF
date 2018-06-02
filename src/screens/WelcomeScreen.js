@@ -1,13 +1,28 @@
 import React, {Component} from 'react';
 import { View, Text, Image, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import startTabs from '../Tabs/mainTab';
 
 class WelcomeScreen extends Component {
-  displayTabs = () => {
-    startTabs()
+  constructor(props){
+    super(props);
+
   }
-  
+  displayRentACar = () => {
+    this.props.navigator.push({
+      screen: "rentACar-screen.RentACar",
+      animated: true,
+      animationType: "fade"
+    })
+  }
+
+  displayRentYourCar = () => {
+    this.props.navigator.push({
+      screen: "rentYourCar.RentYourCar",
+      animated: true,
+      animationType: "fade"
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -17,13 +32,13 @@ class WelcomeScreen extends Component {
           <Icon name="ios-paper-plane-outline" size={30}/>
         </View>
         <View>
-          <TouchableOpacity style={styles.rentAContainer} onPress={this.displayTabs}>
+          <TouchableOpacity style={styles.rentAContainer} onPress={this.displayRentACar}>
             <Text style={styles.rentATitle}>Rent A Car</Text>
             <Icon name="ios-car-outline" size={30}/>
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity style={styles.rentUContainer} onPress={this.displayTabs}>
+          <TouchableOpacity style={styles.rentUContainer} onPress={this.displayRentYourCar}>
             <Text style={styles.rentUTitle}>Rent Your Car</Text>
             <Icon name="ios-cash-outline" size={30}/>
           </TouchableOpacity>
@@ -56,7 +71,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 40,
-    marginBottom: 125
+    marginBottom: 100
   },
   title: {
     marginRight: 15,
