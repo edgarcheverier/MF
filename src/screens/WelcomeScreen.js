@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import { View, Text, Image, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+
 class WelcomeScreen extends Component {
   constructor(props){
     super(props);
-
   }
   displayRentACar = () => {
     this.props.navigator.push({
