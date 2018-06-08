@@ -73,7 +73,6 @@ class RentACar extends Component {
               <Picker style={styles.pickerCitiesStyle} selectedValue={this.state.selectedCity} onValueChange={this.updateCity} >
                 <Picker.Item label="Barcelona" value="Barcelona"/>
                 <Picker.Item label="Helsinki" value="Helsinki"/>
-                <Picker.Item label="Montreal" value="Montreal" />
                 <Picker.Item label="Miami" value="Miami"/>
               </Picker>
               <Picker style={styles.pickerQuality} selectedValue={this.state.selectedQuality} onValueChange={this.updateQuality} >
@@ -130,9 +129,6 @@ const styles = StyleSheet.create({
     height: 150,
     width: 100,
   },
-  buttonContainer: {
-
-  }
 })
 
 export default RentACar;

@@ -97,7 +97,6 @@ class RentYourCar extends Component {
           <Picker style={styles.mainPicker} selectedValue={this.state.selectedCity} onValueChange={this.updateCity}>
             <Picker.Item label="Barcelona" value="Barcelona"/>
             <Picker.Item label="Helsinki" value="Helsinki"/>
-            <Picker.Item label="Montreal" value="Montreal" />
             <Picker.Item label="Miami" value="Miami"/>
           </Picker>
         </View>
@@ -140,13 +139,13 @@ const styles = StyleSheet.create({
   },
   mainPicker:{
     height: 250,
-    width:150,
+    width:350,
     alignSelf: "center",
   },
   carInfoContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 20,
+    marginTop: 5,
   },
   inputs: {
     width: 170,
