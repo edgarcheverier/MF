@@ -13,14 +13,14 @@ const gcs = require('@google-cloud/storage')(gcconfig);
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.storeImage = functions.https.onRequest((request, response) => {
-  return cors(request, response, () => {
+  return cors(request, response, () => { // body.uid
     const body = JSON.parse(request.body);
     fs.writeFileSync("/tmp/uploaded-image.jpg", body.image, "base64", err => {
       console.log(err);
       return response.status(500).json({ error: err });
     });
     const bucket = gcs.bucket("moving-free.appspot.com");
-    const uuid = UUID();
+    const uuid = body.name;
  
     return bucket.upload(
       "/tmp/uploaded-image.jpg",

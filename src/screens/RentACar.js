@@ -3,18 +3,33 @@ import { View, Text, Button, TouchableOpacity, StyleSheet, ScrollView, Picker } 
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Calendar} from 'react-native-calendars';
 
-import Cars from './CarsScreen'; // send the search info the the Cars Component and display the CarsScreen
-
 class RentACar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedDay: {},
-      selectedCity: "",
-      selectedQuality: "",
+      selectedCity: "Barcelona",
+      selectedQuality: "Basic",
     };
   }
+  goToCarsScreen = () => {
+    this.props.navigator.push({
+      screen: "cars-screen.Cars",
+      animated: true,
+      animationType: "fade",
+      passProps: {
+        selectedDay: this.state.selectedDay.day,
+        selectedMonth: this.state.selectedDay.month,
+        selectedYear: this.state.selectedDay.year,
+        selectedCity: this.state.selectedCity, 
+        selectedQuality: this.state.selectedQuality
+      }
+    })
+  }
+
   submitForm = () => {
+    console.log(this.state.selectedDay);
+    this.goToCarsScreen();
     alert(`Your bookin is the date: ${this.state.selectedDay.day} in: ${this.state.selectedCity} type: ${this.state.selectedQuality}`);
   }
 
@@ -65,7 +80,6 @@ class RentACar extends Component {
               <Picker style={styles.pickerQuality} selectedValue={this.state.selectedQuality} onValueChange={this.updateQuality} >
                 <Picker.Item label="Basic" value="Basic"/>
                 <Picker.Item label="Comfortable" value="Comfortable"/>
-                <Picker.Item label="Premium" value="Premium"/>
               </Picker>
           </View>
           <View style={styles.buttonContainer}>

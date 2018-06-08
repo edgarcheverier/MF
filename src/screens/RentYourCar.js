@@ -3,7 +3,6 @@ import { View, Text, Image, Button, TouchableOpacity, StyleSheet, TextInput, Pic
 import Icon from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-picker';
 
-//import * as firebase from 'firebase';
 import Helpers from '../components/helper'; 
 import TriggerImage from '../components/fetchImage';
 
@@ -14,34 +13,43 @@ class RentYourCar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCity: "",
-      carBrand: "",
-      carModel: "",
-      Year: "",
+      selectedCity: "Barcelona",
+      carInfo: "", 
+      contactInfo: "", 
+      Name: "", 
       PriceDay: "",
       pickedImagedOne: null
     }
   }
   backScreen = () => {
     this.props.navigator.push({
-      screen: "welcome-screen.WelcomeScreen",
+      screen: "car-submit-screen.CarSubmitted",
       animated: true,
       animationType: "fade",
     })
   }
+
+  backhome = () => {
+    this.props.navigator.push({
+      screen: "welcome-screen.WelcomeScreen",
+      animated: true,
+      animationType: "fade"
+    })
+  }
+
   updateCity = city => {
     this.setState({selectedCity: city})
   }
-  updateCarBrand = text => {
-    this.setState({carBrand: text})
+  updateCarInfo = text => {
+    this.setState({carInfo: text})
   }
 
-  updateModel = text => {
-    this.setState({carModel: text})
+  updateContactInfo = text => {
+    this.setState({contactInfo: text})
   }
 
-  updateYear = year => {
-    this.setState({Year: year})
+  updateName = text => {
+    this.setState({Name: text})
   }
 
   updateThePrice = text => {
@@ -63,25 +71,24 @@ class RentYourCar extends Component {
   }
 
   submitYourCar = () => {
-    console.log('this is the image: ', this.state.pickedImagedOne);
-    //TriggerImage.trigger(this.state.pickedImagedOne)
     try {
       this.state.selectedCity ?  Helpers.setCity(uid, this.state.selectedCity) : null
-      this.state.carBrand ?  Helpers.setCarBrand(uid, this.state.carBrand) : null
-      this.state.carModel ?  Helpers.setCarModel(uid, this.state.carModel) : null
-      this.state.Year ?  Helpers.setCarYear(uid, this.state.Year) : null
+      this.state.carInfo ?  Helpers.setCarInfo(uid, this.state.carInfo) : null
+      this.state.contactInfo ?  Helpers.setContactInfo(uid, this.state.contactInfo) : null
+      this.state.Name ?  Helpers.setName(uid, this.state.Name) : null
       this.state.PriceDay ?  Helpers.setCarPrice(uid, this.state.PriceDay) : null
-      TriggerImage.trigger(this.state.pickedImagedOne)
+      TriggerImage.trigger(this.state.pickedImagedOne, uid) 
     } catch (error) {
       console.log(error)
     }
+    this.backScreen();
   }
 
   render() {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.navContainer}>
-          <TouchableOpacity onPress={this.backScreen} style={styles.backIcon}>
+          <TouchableOpacity onPress={this.backhome} style={styles.backIcon}>
             <Icon name="ios-arrow-dropleft-outline" size={30}/>
           </TouchableOpacity>
           <Text style={styles.navTitle}>Rent Your Car</Text>
@@ -95,12 +102,12 @@ class RentYourCar extends Component {
           </Picker>
         </View>
         <View style={styles.carInfoContainer}>
-          <TextInput style={styles.inputs} placeholder="Car Brand" onChangeText={this.updateCarBrand}/>
-          <TextInput style={styles.inputs} placeholder="Model" onChangeText={this.updateModel}/>
+          <TextInput style={styles.inputs} placeholder="Car Info" onChangeText={this.updateCarInfo}/> 
+          <TextInput style={styles.inputs} placeholder="Price Per Day" onChangeText={this.updateThePrice}/>
         </View>
         <View style={styles.carInfoContainer}>
-          <TextInput style={styles.inputs} placeholder="Year" onChangeText={this.updateYear}/>
-          <TextInput style={styles.inputs} placeholder="Price Per Day" onChangeText={this.updateThePrice}/>
+          <TextInput style={styles.inputs} placeholder="Name" onChangeText={this.updateName}/>
+          <TextInput style={styles.inputs} placeholder="Contact Info" onChangeText={this.updateContactInfo}/>
         </View>
         <View style={styles.camaraContainer}>
           <View style={styles.placeholder}>
