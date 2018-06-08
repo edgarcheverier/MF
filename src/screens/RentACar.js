@@ -30,7 +30,6 @@ class RentACar extends Component {
   submitForm = () => {
     console.log(this.state.selectedDay);
     this.goToCarsScreen();
-    alert(`Your bookin is the date: ${this.state.selectedDay.day} in: ${this.state.selectedCity} type: ${this.state.selectedQuality}`);
   }
 
   backScreen = () => {
