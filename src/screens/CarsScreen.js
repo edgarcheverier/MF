@@ -35,7 +35,7 @@ class Cars extends Component {
     if (this.props.selectedQuality == 'Basic') {
       quality = 30
     } else {
-      quality = 50
+      quality = 150
     }
     for (let i = 0; i < this.state.data.length; i++) {
       if (this.props.selectedCity == this.state.data[i].city && Number(this.state.data[i].price) < quality) {
