@@ -77,7 +77,7 @@ class RentACar extends Component {
               </Picker>
               <Picker style={styles.pickerQuality} selectedValue={this.state.selectedQuality} onValueChange={this.updateQuality} >
                 <Picker.Item label="Basic" value="Basic"/>
-                <Picker.Item label="Comfortable" value="Comfortable"/>
+                <Picker.Item label="All" value="All"/>
               </Picker>
           </View>
           <View style={styles.buttonContainer}>

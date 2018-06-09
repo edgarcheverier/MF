@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button, Image, ScrollView } from 'react-native';
 import getData from '../components/getData';
 import Icon from 'react-native-vector-icons/Ionicons';
 const uuidv4 = require('uuid/v4');
@@ -8,7 +8,7 @@ class Cars extends Component {
   constructor(props){
     super(props);
     this.state = {
-      data: [] // .carInfo -  .city - .contactInfo - .name  - .price - .url
+      data: [] // .carInfo -  .city - .contactInfo - .name  - .price - .url 
     }
   }
 

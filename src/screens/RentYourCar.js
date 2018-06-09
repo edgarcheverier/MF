@@ -70,7 +70,7 @@ class RentYourCar extends Component {
     });
   }
 
-  submitYourCar = () => {
+  submitYourCar =  () => { // try make it asycn await and then clean all the information in the this.state
     try {
       this.state.selectedCity ?  Helpers.setCity(uid, this.state.selectedCity) : null
       this.state.carInfo ?  Helpers.setCarInfo(uid, this.state.carInfo) : null
@@ -81,6 +81,7 @@ class RentYourCar extends Component {
     } catch (error) {
       console.log(error)
     }
+    uid = uuidv4();
     this.backScreen();
   }
 

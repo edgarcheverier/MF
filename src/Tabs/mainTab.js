@@ -14,12 +14,6 @@ const startTabs = () => {
           title: "Rent A Car",
           icon: icons[0],
         },
-        {
-          screen: "message-screen.MessageScreen",
-          label: "Messages",
-          title: "Messages",
-          icon: icons[1]
-        }
       ],
       appStyle: {
         navBarHidden: true,
