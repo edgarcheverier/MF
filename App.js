@@ -1,16 +1,10 @@
 import { Navigation } from 'react-native-navigation';
-import { Provider } from 'react-redux';
 
-// Screens 
-//import WelcomeScreen from './src/screens/WelcomeScreen';
 import RentACar from './src/screens/RentACar';
 import RentYourCar from './src/screens/RentYourCar';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import CarSubmitted from './src/screens/CarSubmittedScreen';
 import Cars from './src/screens/CarsScreen';
-// Redux
-//import reduxStore from './src/store/reduxStore';
-//const store = reduxStore();
 
 Navigation.registerComponent("welcome-screen.WelcomeScreen", () => WelcomeScreen);
 Navigation.registerComponent("rentACar-screen.RentACar", () => RentACar);
