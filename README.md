@@ -22,7 +22,13 @@ cd moving-free-app
 npm install
 ```
 
-3. Start development server
+3. Firebase
+```
+Create a Project in [Firebase](https://firebase.google.com/) 
+Replace the Firebase key with the key of your new project.
+```
+
+4. Start development server
 ```
 Add the project to Xcode
 npm run ios
