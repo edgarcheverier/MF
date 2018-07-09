@@ -1,7 +1,7 @@
 # Moving Free 
 
 <p align="center">
-<img style="max-width:100px;max-height:500px;" src="https://firebasestorage.googleapis.com/v0/b/moving-free.appspot.com/o/car%2Fmoving-free-app.png?alt=media&token=2b2c9663-ea20-4ef9-8a8f-3d158eb9a839" />
+<img style="max-width:100px;max-height:500px;" src="https://firebasestorage.googleapis.com/v0/b/moving-free.appspot.com/o/car%2Fmoving-free-app_opt.png?alt=media&token=1fb1d951-9266-4fd6-8a97-64a9a9890276" />
 </p>
 
 Moving Free is a mobile (iOS) app for for helping people that have the car 5 days a week in the garage paying every month for the parking, insurance and maintenance for using the car maybe 4 days per month, because go everyday to the work with the car is usually in a city expensive and uncomfortable.
